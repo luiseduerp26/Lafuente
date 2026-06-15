@@ -1,0 +1,6 @@
+{
+  "name": "Lafuente",
+  "description": "La Fuente - Sandwicheria tradicional con sistema de pedidos interactivo y panel de administracion para cocina.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

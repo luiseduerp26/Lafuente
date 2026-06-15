@@ -1,0 +1,27 @@
+{
+  "entities": {
+    "AtomsCloudDoc": {
+      "title": "AtomsCloud Document",
+      "description": "Represents a single key-value document stored in AtomsCloud database",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The stored data array or object representing the value of the key"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp of when the value was last saved"
+        }
+      },
+      "required": ["value"]
+    }
+  },
+  "firestore": {
+    "/atomscloud/{key}": {
+      "schema": "AtomsCloudDoc",
+      "description": "Key-value cloud synchronization store"
+    }
+  }
+}

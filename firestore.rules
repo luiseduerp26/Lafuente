@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net (Default-Deny Catch-All)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // AtomsCloud Key-Value Store rules for menus sync
+    match /atomscloud/{key} {
+      // Anyone can read-sync menu items
+      allow read: if true;
+      
+      // Permit writes that contain valid data
+      allow write: if request.resource.data.keys().hasAll(['value'])
+                   && request.resource.data.value is list;
+    }
+  }
+}
